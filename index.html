@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 8 ball</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <script>
+        const answers = [
+            "Yes",
+            "No",
+            "Not certain",
+            "Seems unlikely",
+            "Not a chance",
+            "In your dreams",
+            "Get real, kid",
+            "Absolutely",
+        ]
+        let username;
+        while (true) {
+            username = prompt("What is your name?");
+            if (username == undefined || username.length <= 0) {
+                continue;
+            } else {
+                break;
+            }
+        }
+
+        let question;
+        while (true) {
+            question = prompt("What is your question?");
+            if (question == undefined || question.length <= 0) {
+                continue;
+            } else {
+                break;
+            }
+        }
+
+        while (true) {
+
+            let userAction;
+            while (true) {
+                userAction = prompt("To get the answer, type shake. To stop, type stop.");
+                if (userAction == undefined) {
+                    continue;
+                } else {
+                    userAction = userAction.toLowerCase();
+                    if (userAction == "shake" || userAction == "stop" || userAction == "again") {
+                        break;
+                    } else {
+                        continue;
+                    }
+                }
+            }
+
+            if (userAction == "stop") {
+                alert("Goodbye!");
+                break;
+            } else if (userAction == "shake") {
+                let index = Math.floor(Math.random() * answers.length);
+                let answer = answers[index];
+                alert(answer);
+            } 
+        }
+
+    </script>
+</body>
+
+</html>
